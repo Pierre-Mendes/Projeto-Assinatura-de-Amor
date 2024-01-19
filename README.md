@@ -25,7 +25,7 @@ Adicione etiquetas de algum lugar, como: [shields.io](https://shields.io/)
 **Front-end:** HTML, CSS, Javascript
 
 ## Screenshots
-![Imagem 1](https://github.com/Pierre-Mendes/Projeto-Assinatura-de-Amor/assets/63386178/0ef7b32b-5746-41f4-b051-21264939d9fb)
 
+![Imagem - 1](https://github.com/Pierre-Mendes/Projeto-Assinatura-de-Amor/assets/63386178/55d06221-aef5-4fc1-bd54-b07363fde718)
 
 
