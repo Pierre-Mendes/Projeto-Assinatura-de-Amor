@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <script defer src="script.js"></script>
+    <title>Assinatura de Código de Amor</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Assinatura de Código de Amor</h1>
+        <form id="formMensagem">
+            <label for="nomeRemetente">Seu Nome:</label>
+            <input type="text" id="nomeRemetente" name="nomeRemetente" required>
+
+            <label for="numeroTelefone">Número de Telefone:</label>
+            <input type="tel" id="numeroTelefone" name="numeroTelefone" required>
+            
+            <label for="mensagem">Digite sua mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+            
+            <label for="dataHoraAgendamento">Agendar para:</label>
+            <input type="datetime-local" id="dataHoraAgendamento" name="dataHoraAgendamento" required>
+            
+            <button type="submit">Gerar Assinatura e Agendar</button>
+        </form>
+        <div id="resultado"></div>
+    </div>
+</body>
+</html>
