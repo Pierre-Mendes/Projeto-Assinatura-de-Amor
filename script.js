@@ -9,16 +9,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const nomeRemetente = document.getElementById('nomeRemetente').value;
       const mensagem = document.getElementById('mensagem').value;
+      const emojis = document.getElementById('emojis').value.split(',').map(emoji => emoji.trim());
+      const linkURL = document.getElementById('linkURL').value;
       const dataHoraAgendamento = document.getElementById('dataHoraAgendamento').value;
       const numeroTelefone = formatarNumeroTelefone(document.getElementById('numeroTelefone').value);
-
       const dataHoraAgendamentoObj = new Date(dataHoraAgendamento);
       const tempoAteAgendamento = dataHoraAgendamentoObj.getTime() - Date.now();
 
       setTimeout(function () {
-          const assinatura = gerarAssinatura(nomeRemetente, mensagem);
+          const assinatura = gerarAssinatura(nomeRemetente, mensagem, emojis, linkURL);
           resultado.innerHTML = `<pre>${assinatura}</pre>`;
-          enviarMensagemWhatsapp(numeroTelefone, mensagem);
+          enviarMensagemWhatsapp(numeroTelefone, assinatura);
       }, tempoAteAgendamento);
   });
 
@@ -35,14 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
     return input;
   }
 
-  function gerarAssinatura(nomeRemetente, mensagem) {
-      const hash = Math.random().toString(36).substring(7);
-      const dataHoraAtual = new Date().toLocaleString();
-      const emojiCoração = '❤️';
+  function gerarAssinatura(nomeRemetente, mensagem, emojis, linkURL) {
+    const hash = Math.random().toString(36).substring(7);
+    const dataHoraAtual = new Date().toLocaleString();
 
-      const assinatura = `# Assinatura de Código de Amor\n# Remetente: ${nomeRemetente} ${emojiCoração}\n# Mensagem: ${mensagem}\n# Data e Hora: ${dataHoraAtual}\n# Assinatura: ${hash}`;
+    const emojisFormatados = emojis.map(emoji => `:${emoji}:`).join('');
+    const mensagemFormatada = `[${mensagem}]`;
+    const linkFormatado = linkURL ? `[Link](${linkURL})` : '';
 
-      return assinatura;
+    const assinatura = `# Assinatura de Código de Amor\n# Remetente: ${nomeRemetente}   ${emojisFormatados}\n# Mensagem: ${mensagemFormatada}\n# Link: ${linkFormatado}\n# Data e Hora: ${dataHoraAtual}\n# Assinatura: ${hash}`;
+
+    return assinatura;
   }
 
   function enviarMensagemWhatsapp(numeroTelefone, mensagem) {
