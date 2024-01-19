@@ -19,8 +19,11 @@ label {
   margin-bottom: 8px;
 }
 
-input,
-textarea {
+input[type="text"],
+input[type="url"],
+input[type="tel"],
+textarea,
+input[type="datetime-local"] {
   width: 100%;
   padding: 8px;
   margin-bottom: 16px;
